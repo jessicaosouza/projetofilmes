@@ -70,7 +70,7 @@ export const useMoviesStore = defineStore('movies', () => {
                 const record = event.target.result
                 const now = Math.floor(Date.now() / 1000) // unix timestamp em sec
 
-                if(!record || now - record.last_updated > 60 ){
+                if(!record || now - record.last_updated > 3600 ){
                     await fetchApi(db)
                     const newRecord = {
                         id: record ? record.id : crypto.randomUUID(),
@@ -193,6 +193,8 @@ export const useMoviesStore = defineStore('movies', () => {
         genres,
         people,
         series,
-        POSTER_URL
+        options,
+        POSTER_URL,
+        BASE_URL
     }
 })

@@ -20,7 +20,7 @@ export function useMovies(){
         return null
     }
 
-    const toLocalDate = () => {
+    const toLocalDate = (date) => {
         let day = date.split('-')[2]
         let month = date.split('-')[1]
         let year = date.split('-')[0]
@@ -28,10 +28,19 @@ export function useMovies(){
         return `${day}/${month}/${year}`
     }
 
+    const getResourceName = (resource) => {
+        if('title' in resource){
+            return resource.title
+        }
+    
+        return resource.name
+    }
+
     return {
         getTrending,
         toLocalDate,
         getMovies,
-        convertToSlug
+        convertToSlug,
+        getResourceName
     }
 }

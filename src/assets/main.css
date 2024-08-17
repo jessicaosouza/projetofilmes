@@ -5,3 +5,7 @@
 .background-color-theme {
     @apply bg-gradient-to-r from-slate-500 via-gray-400 to-slate-500
 }
+
+.link-ativo {
+    @apply bg-white/20 rounded-full;
+}
